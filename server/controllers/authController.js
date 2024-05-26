@@ -59,7 +59,7 @@ export const registerController = async (req, res) => {
       user: user,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in registration",
@@ -118,7 +118,7 @@ export const loginController = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in login",
@@ -129,7 +129,7 @@ export const loginController = async (req, res) => {
 // test controller
 export const testController = (req, res) => {
   res.send("protected Route");
-  console.log("hello");
+  // console.log("hello");
 };
 
 //updateProfileController
@@ -159,7 +159,7 @@ export const updateProfileController = async (req, res) => {
       updatedUser,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(400).send({
       success: false,
       message: "Error in updating profile",
@@ -177,7 +177,7 @@ export const getOrderController = async (req, res) => {
       .populate("buyer", "name");
     res.json(orders);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(400).send({
       success: false,
       message: "Error in geting order controller",
@@ -196,7 +196,7 @@ export const getAllOrderController = async (req, res) => {
 
     res.json(orders);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(400).send({
       success: false,
       message: "Error in geting order controller",
@@ -217,7 +217,7 @@ export const orderStatusUpdateController = async (req, res) => {
     );
     res.json(orders);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.send("Error In Order Status Update Controller");
     error;
   }
@@ -227,7 +227,7 @@ export const orderStatusUpdateController = async (req, res) => {
 
 export const contactEmailController = async (req, res) => {
   const { name, email, message } = req.body;
-  console.log(email);
+  // console.log(email);
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -263,9 +263,9 @@ export const contactEmailController = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log(error);
+        // console.log(error);
       } else {
-        console.log("Email Sent Suucesfully" + info.response);
+        // console.log("Email Sent Suucesfully" + info.response);
         res.status(200).send({
           success: true,
           message: "Email Sent Suucesfully",
@@ -273,7 +273,7 @@ export const contactEmailController = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send({
       suucess: false,
       message: "error in email controller",
@@ -283,7 +283,7 @@ export const contactEmailController = async (req, res) => {
 };
 export const sendOtpController = async (req, res) => {
   const { email, otp } = req.body; // Updated destructuring to get email and otp
-  console.log(otp);
+  // console.log(otp);
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -320,14 +320,14 @@ export const sendOtpController = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).send({
           success: false,
           message: "Error sending email",
           error: error,
         });
       } else {
-        console.log("Email Sent Successfully" + info.response);
+        // console.log("Email Sent Successfully" + info.response);
         res.status(200).send({
           success: true,
           message: "Email Sent Successfully",
@@ -335,7 +335,7 @@ export const sendOtpController = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send({
       success: false,
       message: "Error in email controller",
@@ -346,7 +346,7 @@ export const sendOtpController = async (req, res) => {
 
 export const subscribeEmailController = async (req, res) => {
   const { email } = req.body;
-  console.log(email);
+  // console.log(email);
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -401,9 +401,9 @@ export const subscribeEmailController = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.log(error);
+        // console.log(error);
       } else {
-        console.log("Email Sent Suucesfully" + info.response);
+        // console.log("Email Sent Suucesfully" + info.response);
         res.status(200).send({
           success: true,
           message: "Email Sent Suucesfully",
@@ -411,7 +411,7 @@ export const subscribeEmailController = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send({
       suucess: false,
       message: "error in email controller",
@@ -455,7 +455,7 @@ export const resetPasswordController = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Password updated successfully." });
   } catch (error) {
-    console.error("Error updating password:", error);
+    // console.error("Error updating password:", error);
     return res
       .status(500)
       .json({ success: false, message: "Internal server error." });

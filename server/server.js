@@ -74,7 +74,7 @@ app.get("/users/:email", async (req, res) => {
     }
     res.json(user);
   } catch (error) {
-    console.error("Error fetching user data:", error);
+    // console.error("Error fetching user data:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
@@ -125,8 +125,8 @@ app.get("/", (req, res) => {
 const port = process.env.PORT || 9000;
 
 app.listen(port, () => {
-  console.log(
-    `Express server is running on ${process.env.DEV_MODE} mode on ${port}`
-      .bgWhite.black
-  );
+  // console.log(
+  //   `Express server is running on ${process.env.DEV_MODE} mode on ${port}`
+  //     .bgWhite.black
+  // );
 });

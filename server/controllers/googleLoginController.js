@@ -30,7 +30,7 @@ export const googleLoginUserController = async (
 export const loginSuccessController = async (req, res) => {
   try {
     if (req.user) {
-      console.log("Logged in user:", req.user);
+      // console.log("Logged in user:", req.user);
       const token = await JWT.sign(
         {
           _id: req.user.googleId,
@@ -45,7 +45,7 @@ export const loginSuccessController = async (req, res) => {
       res.status(400).json({ message: "User not authorized" });
     }
   } catch (error) {
-    console.error("Error in loginSuccessController:", error);
+    // console.error("Error in loginSuccessController:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };

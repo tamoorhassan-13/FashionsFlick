@@ -25,7 +25,7 @@ export const cancelOrderController = async (req, res) => {
         const existingProduct = await productModel.findById(productId);
 
         if (!existingProduct) {
-          console.error(`Product with ID ${productId} not found`);
+          // console.error(`Product with ID ${productId} not found`);
           return;
         }
 
@@ -39,7 +39,7 @@ export const cancelOrderController = async (req, res) => {
 
     res.json({ message: "Order canceled successfully", order });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
